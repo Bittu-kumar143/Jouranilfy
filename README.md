@@ -28,8 +28,6 @@
 
 ### 📆 View Journal by Date
 
-![PrevJournalByDate](./assets/PrevJournalBy%20Date.png)
-
 ### 🔎 Search Journals by Date Range
 
 ### 🔍 Search Journals by Text
