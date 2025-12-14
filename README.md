@@ -32,15 +32,11 @@
 
 ### 🔎 Search Journals by Date Range
 
-![SearchByRange](./assets/SearchByRange.png)
-
 ### 🔍 Search Journals by Text
 
 ![SearchByText](./assets/SearchByText.png)
 
 ### 🛠️ Update Existing Entry
-
-![UpdateJournal](./assets/UpdateJournal.png)
 
 ---
 
