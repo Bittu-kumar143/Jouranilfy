@@ -52,7 +52,7 @@
 // });
 
 // export default app;
-import mongoose from 'mongoose';
+/*import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
@@ -102,4 +102,55 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
+export default app;*/
+
+
+
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import express from 'express';
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
+import authRouter from './routes/authRoute.js';
+import journalRouter from './routes/journalRoute.js';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import fs from 'fs';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+dotenv.config();
+
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log('Connected to MongoDB!'))
+  .catch((err) => console.error('MongoDB error:', err));
+
+const app = express();
+
+app.use(cookieParser());
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use(express.json());
+
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  })
+);
+
+const uploadDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir);
+}
+
+app.use('/api/auth', authRouter);
+app.use('/api/journal', journalRouter);
+
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
 export default app;
+
