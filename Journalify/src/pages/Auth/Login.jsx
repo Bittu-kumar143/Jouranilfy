@@ -172,7 +172,7 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            {error && <p className="text-red-500 text-xs pb-1">{error}</p>}
+            /*{error && <p className="text-red-500 text-xs pb-1">{error}</p>}*/
 
             <button type="submit" className="btn-primary">LOGIN</button>
 
