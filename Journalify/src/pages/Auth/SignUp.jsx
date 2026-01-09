@@ -115,6 +115,8 @@ const SignUp = () => {
 
 export default SignUp;*/
 
+
+
 import React, { useState } from 'react';
 import PasswordInput from '../../components/Input/PasswordInput.jsx';
 import { useNavigate } from 'react-router-dom';
@@ -123,13 +125,7 @@ const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const navigate = useNavigate();
-
-  const handleSignUp = (e) => {
-    e.preventDefault();
-    navigate("/dashboard");
-  };
 
   return (
     <div className="h-screen bg-cyan-50 overflow-hidden relative">
@@ -149,44 +145,44 @@ const SignUp = () => {
         </div>
 
         <div className="w-2/4 h-[75vh] bg-white rounded-r-lg relative p-16 shadow-lg shadow-cyan-200/20">
-          <form onSubmit={handleSignUp}>
-            <h4 className="text-2xl font-semibold mb-7">SignUp</h4>
+          <h4 className="text-2xl font-semibold mb-7">SignUp</h4>
 
-            <input
-              type="text"
-              placeholder="Name"
-              className="input-box"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
+          <input
+            type="text"
+            placeholder="Name"
+            className="input-box"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
 
-            <input
-              type="email"
-              placeholder="Email"
-              className="input-box"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+          <input
+            type="email"
+            placeholder="Email"
+            className="input-box"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-            <PasswordInput
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+          <PasswordInput
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
-            <button type="submit" className="btn-primary">
-              CREATE ACCOUNT
-            </button>
+          <button
+            className="btn-primary"
+            onClick={() => navigate("/dashboard")}
+          >
+            CREATE ACCOUNT
+          </button>
 
-            <p className="text-xs text-slate-500 text-center my-4">Or</p>
+          <p className="text-xs text-slate-500 text-center my-4">Or</p>
 
-            <button
-              type="button"
-              className="btn-primary btn-light"
-              onClick={() => navigate("/login")}
-            >
-              LOGIN
-            </button>
-          </form>
+          <button
+            className="btn-primary btn-light"
+            onClick={() => navigate("/login")}
+          >
+            LOGIN
+          </button>
         </div>
       </div>
     </div>
@@ -194,4 +190,5 @@ const SignUp = () => {
 };
 
 export default SignUp;
+
 
