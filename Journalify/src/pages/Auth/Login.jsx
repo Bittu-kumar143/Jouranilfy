@@ -116,13 +116,18 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  /*const handleLogin = (e) => {
     e.preventDefault();
 
     if (!validateEmail(email)) {
       setError("Please enter a valid email address");
       return;
-    }
+    }*/
+
+  const handleLogin = (e) => {
+  e.preventDefault();
+  navigate("/dashboard");
+};
 
     if (!password) {
       setError("Password field cannot be empty.");
