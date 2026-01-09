@@ -124,17 +124,22 @@ const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
+  //const [error, setError] = useState(null);
 
   const navigate = useNavigate();
 
-  const handleSignUp = (e) => {
+  /*const handleSignUp = (e) => {
     e.preventDefault();
 
     if (!name) {
       setError("Please enter your name");
       return;
-    }
+    }*/
+
+  const handleSignUp = (e) => {
+  e.preventDefault();
+  navigate("/dashboard");
+};
 
     if (!validateEmail(email)) {
       setError("Please enter a valid email address");
@@ -192,7 +197,7 @@ const SignUp = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            {error && <p className="text-red-500 text-xs pb-1">{error}</p>}
+            /*{error && <p className="text-red-500 text-xs pb-1">{error}</p>}*/
 
             <button type="submit" className="btn-primary">CREATE ACCOUNT</button>
 
