@@ -118,41 +118,16 @@ export default SignUp;*/
 import React, { useState } from 'react';
 import PasswordInput from '../../components/Input/PasswordInput.jsx';
 import { useNavigate } from 'react-router-dom';
-import { validateEmail } from '../../utils/helper.js';
 
 const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  //const [error, setError] = useState(null);
 
   const navigate = useNavigate();
 
-  /*const handleSignUp = (e) => {
-    e.preventDefault();
-
-    if (!name) {
-      setError("Please enter your name");
-      return;
-    }*/
-
   const handleSignUp = (e) => {
-  e.preventDefault();
-  navigate("/dashboard");
-};
-
-    if (!validateEmail(email)) {
-      setError("Please enter a valid email address");
-      return;
-    }
-
-    if (!password) {
-      setError("Password field cannot be empty.");
-      return;
-    }
-
-    // DEMO MODE: skip backend
-    setError(null);
+    e.preventDefault();
     navigate("/dashboard");
   };
 
@@ -160,6 +135,7 @@ const SignUp = () => {
     <div className="h-screen bg-cyan-50 overflow-hidden relative">
       <div className="login-ui-box right-10 -top-40" />
       <div className="login-ui-box bg-cyan-200 -bottom-40 right-1/2" />
+
       <div className="container h-screen flex items-center justify-center px-20 mx-auto">
         <div className="w-2/4 h-[90vh] flex items-end bg-signup-bg-img bg-cover bg-center rounded-lg p-10 z-50">
           <div>
@@ -197,9 +173,9 @@ const SignUp = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            /*{error && <p className="text-red-500 text-xs pb-1">{error}</p>}*/
-
-            <button type="submit" className="btn-primary">CREATE ACCOUNT</button>
+            <button type="submit" className="btn-primary">
+              CREATE ACCOUNT
+            </button>
 
             <p className="text-xs text-slate-500 text-center my-4">Or</p>
 
@@ -218,3 +194,4 @@ const SignUp = () => {
 };
 
 export default SignUp;
+
