@@ -103,39 +103,18 @@ const Login = () => {
 
 export default Login;*/
 
-
 import React, { useState } from 'react';
 import PasswordInput from '../../components/Input/PasswordInput.jsx';
 import { useNavigate } from 'react-router-dom';
-import { validateEmail } from '../../utils/helper.js';
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  /*const [error, setError] = useState(null);*/
 
   const navigate = useNavigate();
 
-  /*const handleLogin = (e) => {
-    e.preventDefault();
-
-    if (!validateEmail(email)) {
-      setError("Please enter a valid email address");
-      return;
-    }*/
-
   const handleLogin = (e) => {
-  e.preventDefault();
-  navigate("/dashboard");
-};
-
-    if (!password) {
-      setError("Password field cannot be empty.");
-      return;
-    }
-
-    // DEMO MODE: skip backend
-    setError(null);
+    e.preventDefault();
     navigate("/dashboard");
   };
 
@@ -143,6 +122,7 @@ const Login = () => {
     <div className="h-screen bg-cyan-50 overflow-hidden relative">
       <div className="login-ui-box right-10 -top-40" />
       <div className="login-ui-box bg-cyan-200 -bottom-40 right-1/2" />
+
       <div className="container h-screen flex items-center justify-center px-20 mx-auto">
         <div className="w-2/4 h-[90vh] flex items-end bg-login-bg-img bg-cover bg-center rounded-lg p-10 z-50">
           <div>
@@ -160,7 +140,7 @@ const Login = () => {
             <h4 className="text-2xl font-semibold mb-7">Login</h4>
 
             <input
-              type="text"
+              type="email"
               placeholder="Email"
               className="input-box"
               value={email}
@@ -172,9 +152,9 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            /*{error && <p className="text-red-500 text-xs pb-1">{error}</p>}*/
-
-            <button type="submit" className="btn-primary">LOGIN</button>
+            <button type="submit" className="btn-primary">
+              LOGIN
+            </button>
 
             <p className="text-xs text-slate-500 text-center my-4">Or</p>
 
@@ -193,4 +173,7 @@ const Login = () => {
 };
 
 export default Login;
+
+
+
 
